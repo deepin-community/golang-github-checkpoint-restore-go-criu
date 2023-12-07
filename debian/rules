@@ -1,4 +1,18 @@
 #!/usr/bin/make -f
 
+export DH_GOLANG_EXCLUDES := crit-go/magic-gen phaul test
+
+SRC_DIR = _build/src/github.com/checkpoint-restore/go-criu/
+
 %:
-	dh $@
+	dh $@ --builddirectory=_build --buildsystem=golang --with=golang
+
+execute_after_dh_auto_configure:
+	cp debian/missing-sources/stats/stats.proto $(SRC_DIR)stats/
+	$(RM) $(addprefix $(SRC_DIR),rpc/rpc.pb.go stats/stats.pb.go)
+	cd $(SRC_DIR) && protoc --go_out=. --go_opt=Mrpc/rpc.proto=rpc/ rpc/rpc.proto
+	cd $(SRC_DIR) && protoc --go_out=. --go_opt=Mstats/stats.proto=stats/ stats/stats.proto
+
+override_dh_auto_install:
+	dh_auto_install -- --no-binaries
+	find _build debian -name '*.proto' -exec chmod -x {} +
