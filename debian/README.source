@@ -1,0 +1,4 @@
+Upstream do not ship complete sources (".proto" files are from another
+repository):
+
+  https://github.com/checkpoint-restore/go-criu/issues/9
