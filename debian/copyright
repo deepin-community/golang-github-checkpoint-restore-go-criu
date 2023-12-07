@@ -1,22 +1,116 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: template-repository
-Source: https://github.com/deepin-community/template-repository
+Upstream-Name: go-criu
+Source: https://github.com/checkpoint-restore/go-criu
+Files-Excluded: vendor
 
 Files: *
-Copyright: 2023 Tsic404 <liuheng@deepin.org>
-License: GPL-2+
- This package is free software; you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation; either version 2 of the License, or
- (at your option) any later version.
+Copyright: go-criu authors
+License: Apache-2.0
+Comment:
+ The upstream distribution does not contain an explicit statement of
+ copyright ownership. Pursuant to the Berne Convention for the Protection of
+ Literary and Artistic Works, it is assumed that all content is copyright by
+ its respective authors unless otherwise stated.
  .
- This package is distributed in the hope that it will be useful,
+ https://github.com/checkpoint-restore/go-criu/issues/8
+
+Files: debian/*
+Copyright:
+ 2019-2020 Dmitry Smirnov <onlyjob@debian.org>
+License: Apache-2.0 or GPL-2
+
+Files: debian/missing-sources/*
+Copyright: criu authors
+License: GPL-2
+Comment:
+ Origin: https://github.com/checkpoint-restore/criu
+ .
+ The upstream distribution does not contain an explicit statement of
+ copyright ownership. Pursuant to the Berne Convention for the Protection of
+ Literary and Artistic Works, it is assumed that all content is copyright by
+ its respective authors unless otherwise stated.
+
+Files: rpc/*
+Copyright: go-criu authors
+License: Expat
+Comment:
+ The upstream distribution does not contain an explicit statement of
+ copyright ownership. Pursuant to the Berne Convention for the Protection of
+ Literary and Artistic Works, it is assumed that all content is copyright by
+ its respective authors unless otherwise stated.
+ .
+ https://github.com/checkpoint-restore/go-criu/issues/8
+
+Files: stats/stats.pb.go
+Copyright: go-criu authors
+License: Expat
+Comment:
+ The upstream distribution does not contain an explicit statement of
+ copyright ownership. Pursuant to the Berne Convention for the Protection of
+ Literary and Artistic Works, it is assumed that all content is copyright by
+ its respective authors unless otherwise stated.
+ .
+ https://github.com/checkpoint-restore/go-criu/issues/8
+
+License: Apache-2.0
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ .
+ http://www.apache.org/licenses/LICENSE-2.0
+ .
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ .
+ On Debian systems, the complete text of the Apache version 2.0 license
+ can be found in "/usr/share/common-licenses/Apache-2.0".
+
+License: Expat
+ This software is Copyright (c) 2022 by X. Ample.
+ .
+ This is free software, licensed under:
+ .
+   The MIT (X11) License
+ .
+ The MIT License
+ .
+ Permission is hereby granted, free of charge, to any person
+ obtaining a copy of this software and associated
+ documentation files (the "Software"), to deal in the Software
+ without restriction, including without limitation the rights to
+ use, copy, modify, merge, publish, distribute, sublicense,
+ and/or sell copies of the Software, and to permit persons to
+ whom the Software is furnished to do so, subject to the
+ following conditions:
+ .
+ The above copyright notice and this permission notice shall
+ be included in all copies or substantial portions of the
+ Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT
+ WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR
+ PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+ SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+ CONNECTION WITH THE SOFTWARE OR THE USE OR
+ OTHER DEALINGS IN THE SOFTWARE.
+
+License: GPL-2
+ This program is free software; you can redistribute it and/or modify it
+ under the terms of the GNU General Public License as published by the Free
+ Software Foundation, version 2 of the License.
+ ․
+ This program is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
- .
- You should have received a copy of the GNU General Public License
- along with this program. If not, see <https://www.gnu.org/licenses/>
- .
- On Debian systems, the complete text of the GNU General
- Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
+ ․
+ On Debian systems, the complete text of the GNU General Public
+ License Version 2 can be found in "/usr/share/common-licenses/GPL-2".
