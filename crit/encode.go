@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/checkpoint-restore/go-criu/v6/magic"
+	"github.com/checkpoint-restore/go-criu/v7/magic"
 	"google.golang.org/protobuf/proto"
 )
 
@@ -20,7 +20,7 @@ func encodeImg(img *CriuImage, f *os.File) error {
 	// Write magic
 	magic, ok := magicMap.ByName[img.Magic]
 	if !ok {
-		return errors.New(fmt.Sprint("Unknown magic ", img.Magic))
+		return errors.New(fmt.Sprint("unknown magic ", img.Magic))
 	}
 	magicBuf := make([]byte, 4)
 	if img.Magic != "INVENTORY" {
@@ -59,7 +59,7 @@ func encodeImg(img *CriuImage, f *os.File) error {
 	case "SK_QUEUES":
 		err = img.encodeDefault(f, encodeSkQueues)
 	case "TCP_STREAM":
-		err = img.encodeDefault(f, encodeTcpStream)
+		err = img.encodeDefault(f, encodeTCPStream)
 	default:
 		err = img.encodeDefault(f, nil)
 	}
