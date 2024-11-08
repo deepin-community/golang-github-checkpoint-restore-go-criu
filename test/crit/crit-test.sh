@@ -3,7 +3,7 @@
 set -x
 
 CRIT=../../crit/bin/crit
-TEST_IMG_DIR=test-imgs
+TEST_IMG_DIR=test-imgs/loop
 
 function gen_img_list {
 	images_list=$(find "$TEST_IMG_DIR" -regex '^[^\.]*\.img$')
@@ -32,7 +32,6 @@ function recode_test {
 		echo "=== done"
 	done
 }
-
 
 function command_test {
 	PROTO_IN="$TEST_IMG_DIR"/inventory.img
@@ -68,11 +67,16 @@ function command_test {
 	$CRIT encode -i "$PROTO_IN" -o "$OUT" || true
 	$CRIT encode -i "$PROTO_IN" > "$OUT" || true
 
+	# test info and show commands
+	$CRIT info "$PROTO_IN" || exit 1
+	$CRIT show "$PROTO_IN" || exit 1
+
 	# explore image directory
 	$CRIT x "$TEST_IMG_DIR" ps || exit 1
-	$CRIT x "$TEST_IMG_DIR" fds || exit 1
-	$CRIT x "$TEST_IMG_DIR" mems || exit 1
+	$CRIT x "$TEST_IMG_DIR" fd || exit 1
+	$CRIT x "$TEST_IMG_DIR" mem || exit 1
 	$CRIT x "$TEST_IMG_DIR" rss || exit 1
+	$CRIT x "$TEST_IMG_DIR" sk || exit 1
 }
 
 echo "Generating image list..."

@@ -1,0 +1,72 @@
+From: Reinhard Tartler <siretart@tauware.de>
+Date: Tue, 6 Aug 2024 20:02:18 -0400
+Subject: Skip Image tests
+
+These tests require generated criu test images to be around.
+---
+ crit/mempages_test.go | 8 ++++----
+ crit/stats_test.go    | 4 ++--
+ 2 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/crit/mempages_test.go b/crit/mempages_test.go
+index 2c087b8..dd1c248 100644
+--- a/crit/mempages_test.go
++++ b/crit/mempages_test.go
+@@ -17,7 +17,7 @@ const (
+ func TestNewMemoryReader(t *testing.T) {
+ 	pid, err := getTestImgPID()
+ 	if err != nil {
+-		t.Fatal(err)
++		t.Skipf("Cannot execute test: %v", err)
+ 	}
+ 
+ 	testCases := []struct {
+@@ -82,7 +82,7 @@ func TestGetMemPages(t *testing.T) {
+ 
+ 	pid, err := getTestImgPID()
+ 	if err != nil {
+-		t.Fatal(err)
++		t.Skipf("Cannot execute test: %v", err)
+ 	}
+ 
+ 	// Create a temporary empty memory pages file for testing
+@@ -191,7 +191,7 @@ func TestGetMemPages(t *testing.T) {
+ func TestGetPsArgsAndEnvVars(t *testing.T) {
+ 	pid, err := getTestImgPID()
+ 	if err != nil {
+-		t.Fatal(err)
++		t.Skipf("Cannot execute test: %v", err)
+ 	}
+ 
+ 	mr, err := NewMemoryReader(testImgsDir, pid, sysPageSize)
+@@ -251,7 +251,7 @@ func TestGetPsArgsAndEnvVars(t *testing.T) {
+ func TestGetShmemSize(t *testing.T) {
+ 	pid, err := getTestImgPID()
+ 	if err != nil {
+-		t.Fatal(err)
++		t.Skipf("Cannot execute test: %v", err)
+ 	}
+ 
+ 	mr, err := NewMemoryReader(testImgsDir, pid, sysPageSize)
+diff --git a/crit/stats_test.go b/crit/stats_test.go
+index 3da5876..838a453 100644
+--- a/crit/stats_test.go
++++ b/crit/stats_test.go
+@@ -5,7 +5,7 @@ import "testing"
+ func TestGetDumpStats(t *testing.T) {
+ 	dumpStats, err := GetDumpStats("test-imgs")
+ 	if err != nil {
+-		t.Error("Failed to get stats")
++		t.Skipf("Cannot execute test: %v", err)
+ 	}
+ 	if dumpStats.GetPagesWritten() == 0 {
+ 		t.Error("PagesWritten is 0")
+@@ -15,7 +15,7 @@ func TestGetDumpStats(t *testing.T) {
+ func TestGetRestoreStats(t *testing.T) {
+ 	restoreStats, err := GetRestoreStats("test-imgs")
+ 	if err != nil {
+-		t.Error("Failed to get stats")
++		t.Skipf("Cannot execute test: %v", err)
+ 	}
+ 	if restoreStats.GetForkingTime() == 0 {
+ 		t.Error("ForkingTime is 0")
