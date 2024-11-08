@@ -6,8 +6,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/checkpoint-restore/go-criu/v6"
-	"github.com/checkpoint-restore/go-criu/v6/rpc"
+	"github.com/checkpoint-restore/go-criu/v7"
+	"github.com/checkpoint-restore/go-criu/v7/rpc"
 	"golang.org/x/sys/unix"
 	"google.golang.org/protobuf/proto"
 )
@@ -82,7 +82,7 @@ func (s *Server) StartIter() error {
 // StopIter function
 func (s *Server) StopIter() error {
 	if s.process == nil {
-		return errors.New("No process to stop")
+		return errors.New("no process to stop")
 	}
 	state, err := s.process.Wait()
 	if err != nil && !errors.Is(err, unix.ECHILD) {

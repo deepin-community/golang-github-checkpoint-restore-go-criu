@@ -1,9 +1,14 @@
-module github.com/checkpoint-restore/go-criu/v6
+module github.com/checkpoint-restore/go-criu/v7
 
-go 1.16
+go 1.18
 
 require (
-	github.com/spf13/cobra v1.5.0
-	golang.org/x/sys v0.0.0-20210124154548-22da62e12c0c
-	google.golang.org/protobuf v1.28.1
+	github.com/spf13/cobra v1.8.0
+	golang.org/x/sys v0.18.0
+	google.golang.org/protobuf v1.32.0
+)
+
+require (
+	github.com/inconshreveable/mousetrap v1.1.0 // indirect
+	github.com/spf13/pflag v1.0.5 // indirect
 )
