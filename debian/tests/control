@@ -1,0 +1,4 @@
+Tests: integration-tests
+Depends: criu (>= 3.19), @, @builddeps@, @recommends@, procps
+Restrictions: allow-stderr, needs-root, isolation-machine
+

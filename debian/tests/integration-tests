@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -eu
+
+# avoid accessing internet but use debian sources for gomodules
+export GO111MODULE=off
+export GOPATH="${PWD}:/usr/share/gocode"
+
+if ! make -C test; then
+    echo " File listing of test/image"
+    find test/image -ls
+    # shellcheck disable=SC2044
+    for log in $(find test/image/ -name '*.log' | sort); do
+        echo "=== contents of: $log"
+        cat "$log"
+        echo "======================"
+        echo
+    done
+    echo " Test failed, please investigate the diagnostics above"
+    exit 1
+fi

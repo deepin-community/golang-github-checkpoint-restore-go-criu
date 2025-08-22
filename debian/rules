@@ -1,8 +1,8 @@
 #!/usr/bin/make -f
 
-export DH_GOLANG_EXCLUDES := crit-go/magic-gen phaul test
+export DH_GOLANG_EXCLUDES := crit-go/magic-gen test
 
-SRC_DIR = _build/src/github.com/checkpoint-restore/go-criu/
+SRC_DIR = _build/src/github.com/checkpoint-restore/go-criu/v7/
 
 %:
 	dh $@ --builddirectory=_build --buildsystem=golang --with=golang

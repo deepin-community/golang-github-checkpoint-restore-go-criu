@@ -9,7 +9,7 @@ These tests require generated criu test images to be around.
  2 files changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/crit/mempages_test.go b/crit/mempages_test.go
-index 2c087b8..dd1c248 100644
+index e4cbe10..57d9fa7 100644
 --- a/crit/mempages_test.go
 +++ b/crit/mempages_test.go
 @@ -17,7 +17,7 @@ const (
@@ -40,7 +40,7 @@ index 2c087b8..dd1c248 100644
  
  	mr, err := NewMemoryReader(testImgsDir, pid, sysPageSize)
 @@ -251,7 +251,7 @@ func TestGetPsArgsAndEnvVars(t *testing.T) {
- func TestGetShmemSize(t *testing.T) {
+ func TestSearchPattern(t *testing.T) {
  	pid, err := getTestImgPID()
  	if err != nil {
 -		t.Fatal(err)
